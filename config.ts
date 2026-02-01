@@ -1,8 +1,9 @@
+/// <reference types="vite/client" />
 // Vision-Based Checkout System Configuration
 
-// IMPORTANT: Paste your Google Gemini API Key here.
-// To get your key, visit https://makersuite.google.com/app/apikey
-// Your key should be a long string of characters.
-// Make sure it is placed between the double quotes.
+// API Configuration
+// If VITE_API_URL is set (in .env), use it. Otherwise fallback to localhost.
+export const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
-//export const API_KEY = "AIzaSyAoN5-3PCxVUuYLG9IrASTda5iC9DRDqDY";
+// Google Gemini API Key
+// export const API_KEY = "AIzaSyAoN5-3PCxVUuYLG9IrASTda5iC9DRDqDY";

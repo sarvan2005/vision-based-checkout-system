@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+import { API_URL } from '../config';
 import type { CartItem } from '../types/index.ts';
 
 interface ShoppingCartProps {
@@ -198,7 +199,7 @@ export const ShoppingCart: React.FC<ShoppingCartProps> = ({ image, cartItems, on
 
                                                     // Autocomplete search
                                                     if (val.length > 1) {
-                                                        fetch(`http://127.0.0.1:8000/products/search?q=${val}`)
+                                                        fetch(`${API_URL}/products/search?q=${val}`)
                                                             .then(res => res.json())
                                                             .then(data => {
                                                                 console.log("Search results:", data);

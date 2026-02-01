@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { API_URL } from './config';
 import { Alert } from './components/Alert.tsx';
 import { CameraView } from './components/CameraView.tsx';
 import { Header } from './components/Header.tsx';
@@ -49,7 +50,7 @@ const App: React.FC = () => {
     });
 
     try {
-      const response = await fetch("http://localhost:8000/process-image", {
+      const response = await fetch(`${API_URL}/process-image`, {
         method: "POST",
         body: formData,
       });
