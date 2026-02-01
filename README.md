@@ -1,4 +1,4 @@
-# Vision Checkout - AI-Powered Self-Checkout System
+# Vision Checkout - A Decision‑Driven Intelligent Self‑Checkout System
 
 A smart self-checkout system that uses computer vision to identify products, prevent fraud, and streamline the retail experience.
 
