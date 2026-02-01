@@ -1,0 +1,6 @@
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 11
+names: ['banjaras lipbam', 'boroplus', 'camlin lids', 'camlin marker ink', 'hand', 'himalaya toothpaste', 'jovees herbal', 'mysore sandal soap', 'noise victor smartwatch', 'phillips oneblade', 'santoor bodywash']

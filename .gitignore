@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Backend / Python
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/database.db
+backend/runs/
+backend/.env
+backend/debug_log.txt
+*.sqlite3
+__pycache__/
+
+# Dataset (optional, if you want to exclude large datasets)
+# dataset/
+

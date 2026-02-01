@@ -1,0 +1,7 @@
+{
+  "name": "Vision-Based Checkout System",
+  "description": "A smart barcode-free, vision-based checkout system for retail environments. This application uses AI to identify products from an image, adds them to a cart, checks for suspicious activity, and simulates a checkout process, enhancing the customer experience.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
