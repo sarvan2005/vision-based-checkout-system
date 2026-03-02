@@ -35,5 +35,5 @@ backend/debug_log.txt
 __pycache__/
 
 # Dataset (optional, if you want to exclude large datasets)
-# dataset/
+dataset/
 

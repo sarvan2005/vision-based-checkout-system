@@ -33,11 +33,26 @@ def seed_products_from_dataset():
         print("No class names found in data.yaml")
         return
 
-    # Simple demo pricing: 100, 110, 120, ... per class
+    # Realistic pricing for the specific classes
+    price_mapping = {
+        'Camlin marker ink': 35.0,
+        'Coclip powder': 120.0,
+        'Gizga 3-in-1 cleaning kit': 250.0,
+        'Hausser XO pen': 20.0,
+        'Jovees herbal': 200.0,
+        'Phillips one blade': 1499.0,
+        'Ponds mositurizer': 99.0,
+        'Twist 2x2 rubix cube': 299.0,
+        'santoor soap': 36.0
+    }
+
     products = []
     base_price = 100.0
     for idx, name in enumerate(class_names):
-        products.append((name, base_price + idx * 10.0))
+        if name.lower() == 'hand':
+            continue # Skip inserting 'Hand' into the product database
+        price = price_mapping.get(name, base_price + idx * 10.0)
+        products.append((name, price))
 
     for name, price in products:
         insert_product(name, price)

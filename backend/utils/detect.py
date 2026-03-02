@@ -4,7 +4,7 @@ import os
 
 # Load your trained YOLO model (update path after training completes)
 # For now, fallback to pretrained if trained model doesn't exist
-model_path = "runs/detect/checkout_v1/weights/best.pt"
+model_path = "runs/detect/checkout_final/weights/best.pt"
 if os.path.exists(model_path):
     print(f"[INFO] Loading trained model from: {model_path}")
     model = YOLO(model_path)
@@ -24,12 +24,10 @@ def run_detection(image, conf_threshold=0.25):
         conf_threshold: Minimum confidence threshold (default: 0.25)
     """
 
-    # Convert PIL → numpy
-    image_np = np.array(image)
-
     # Run model with VERY low confidence so we can catch "hand" even if weak
     # We will filter other objects by conf_threshold manually later
-    results = model.predict(image_np, conf=0.1, verbose=False)
+    # Passing the PIL image directly allows YOLO to handle RGB/BGR correctly
+    results = model.predict(image, conf=0.1, verbose=False)
 
     detections = []
 
@@ -46,7 +44,7 @@ def run_detection(image, conf_threshold=0.25):
         # HAND DETECTION RULE:
         # If it's a "hand", we KEEP it regardless of confidence (or with very low conf).
         # For everything else, we enforce the passed `conf_threshold`.
-        if class_name == "hand":
+        if class_name.lower() == "hand":
             pass # Keep it!
         elif conf < conf_threshold:
             print(f"[DEBUG] Skipped {class_name} due to low confidence")

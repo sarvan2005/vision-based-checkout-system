@@ -1,15 +1,19 @@
 from ultralytics import YOLO
 
-# Load YOLOv8 model (nano is best for CPU)
-model = YOLO("yolov8n.pt")
+model = YOLO("yolov8s.pt") 
 
-# Train the model
+# FINAL TECH VERDICT CONFIGURATION
 model.train(
     data="../dataset/data.yaml",
-    epochs=50,
+    epochs=40,
     imgsz=640,
-    batch=8,          # reduce to 4 if RAM is low     # change to 0 if you have NVIDIA GPU
+    batch=8,          
     workers=4,
-    name="checkout_v1",
-    patience=10
+    optimizer="AdamW", # Industry standard for stability
+    lr0=0.001,        # Optimal starting point for AdamW
+    name="checkout_final",
+    patience=10,      # Give it room to recover; 12 is too aggressive
+    dropout=0.0,      # YOLOv8 handles regularization via weight_decay
+    weight_decay=0.0005, # The actual fix for overfitting
+    cos_lr=True       # Smooth learning rate schedule
 )

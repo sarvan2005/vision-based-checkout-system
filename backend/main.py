@@ -159,7 +159,7 @@ async def process_image(
     # Only detected products (excluding 'hand' if it somehow passed logic, but apply_strict rejects hands)
     # We should filter out non-products if any. Assuming YOLO classes are products + hand.
     
-    product_detections = [d for d in detections if d["class_name"] != "hand"]
+    product_detections = [d for d in detections if d["class_name"].lower() != "hand"]
 
     for det in product_detections:
         confidence = det["confidence"]

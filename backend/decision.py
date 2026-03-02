@@ -19,7 +19,7 @@ def apply_strict_checkout_rules(detections):
     # ---------------------------------------------------
     # Check for hand or suspicious objects
     for det in detections:
-        if det["class_name"] == "hand":
+        if det["class_name"].lower() == "hand":
             return "REJECT", "Hand detected in frame. Please keep hands away."
     
     # ---------------------------------------------------
